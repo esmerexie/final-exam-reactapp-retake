@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 import Button from 'react-bootstrap/Button';
-import Table from 'react-bootstrap/Table';
+import Accordion from 'react-bootstrap/Accordion';
 
 class Items extends Component {
 
@@ -9,24 +9,19 @@ class Items extends Component {
 
     return (
       <section>
-        <h2>Items...</h2>
+        <h2>To Do Tasks</h2>
 
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
+            <Accordion>
+              <Accordion.Header>Items</Accordion.Header>
+              <Accordion.Body>
             {
               this.props.itemsList.map((item, idx) =>
                 <Item key={item._id} itemData={item} handleDelete={this.props.handleDelete} />
               )
             }
-          </tbody>
-        </Table>
+            </Accordion.Body>
+            </Accordion>
+
 
 
       </section>

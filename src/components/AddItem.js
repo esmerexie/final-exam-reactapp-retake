@@ -39,7 +39,7 @@ class AddNewItem extends React.Component {
               <Form.Label>Description</Form.Label>
               <Form.Control type="text" placeholder="Description" data-testid="add-form-description" name="description" onChange={this.handleChange} />
             </Form.Group>
-            <Button variant="primary" type="submit" onClick={this.handleSubmit}>Add Item</Button>
+            <Button variant="primary" onClick={this.handleSubmit}>Add Item</Button>
           </Card.Body>
         </Card>
       </Form>
