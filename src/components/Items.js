@@ -22,7 +22,7 @@ class Items extends Component {
           <tbody>
             {
               this.props.itemsList.map((item, idx) =>
-                <Item key={item._id} itemData={item} />
+                <Item key={item._id} itemData={item} handleDelete={this.props.handleDelete} />
               )
             }
           </tbody>
@@ -36,6 +36,12 @@ class Items extends Component {
 
 class Item extends Component {
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    this.props.handleDelete(this.props.itemData._id)
+  }
+
   render() {
 
     const itemData = this.props.itemData;
@@ -45,7 +51,7 @@ class Item extends Component {
         <td>{itemData.name}</td>
         <td>{itemData.description}</td>
         <td>
-          <Button data-testid={`delete-button-${itemData.name}`}>Delete Item</Button>
+          <Button data-testid={`delete-button-${itemData.name}`} onClick={this.handleSubmit}>Delete Item</Button>
         </td>
       </tr>
     );

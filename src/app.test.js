@@ -43,7 +43,7 @@ const server = setupServer(
   rest.delete(`*/items/:id`, (req, res, ctx) => {
     const id = parseFloat(req.params.id);
     items = items.filter(item => item._id !== id);
-    return res(null);
+    return res(ctx.json({ success: true }));
   })
 )
 
